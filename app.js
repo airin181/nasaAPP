@@ -7,6 +7,8 @@ const port = 3000
 const fetch = require('node-fetch') 
 const env = require("dotenv").config();
 
+const routes = require('./routes/routes');
+app.use('/', routes) 
 
 
 app.listen(port, () => {
