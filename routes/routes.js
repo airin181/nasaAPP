@@ -1,9 +1,12 @@
 const express = require('express');
 const routes = express.Router();
+const landing = require('../controllers/landings-controllers')
 
-routes.get('/', (req, res) => {
-    console.log("Hello world")
-    res.status(200).send({message: "hello world" })
-})
+
+
+//Landings
+routes.get('/landings/?minimum_mass', landings.minimumMass) //query params
+routes.get('/landings/:mass', landings.mass) // route params
+
 
 module.exports = routes;

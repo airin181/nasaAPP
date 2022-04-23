@@ -4,12 +4,8 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT;
 
-
-//cambiar a donde estén los fetch
-/* const fetch = require('node-fetch')  */
-
 const routes = require('./routes/routes.js');
-app.use('/', routes) 
+app.use('/api/astronomy', routes) 
 
 
 app.listen(port, () => {
