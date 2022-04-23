@@ -3,7 +3,9 @@ const app = express()
 const port = 3000
 
 
-const fetch = require('node-fetch') //cambiar a donde estén los fetch
+//cambiar a donde estén los fetch
+const fetch = require('node-fetch') 
+const env = require("dotenv").config();
 
 
 
