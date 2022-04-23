@@ -1,0 +1,23 @@
+{
+  "name": "nasaapp",
+  "version": "1.0.0",
+  "description": "NasaAPP",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airin181/nasaAPP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/airin181/nasaAPP/issues"
+  },
+  "homepage": "https://github.com/airin181/nasaAPP#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
