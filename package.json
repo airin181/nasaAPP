@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/airin181/nasaAPP#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.1"
   }
 }
