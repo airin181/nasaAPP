@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -7,7 +9,7 @@ const port = 3000
 const fetch = require('node-fetch') 
 const env = require("dotenv").config();
 
-const routes = require('./routes/routes');
+const routes = require('./routes/routes.js');
 app.use('/', routes) 
 
 
