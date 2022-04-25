@@ -1,4 +1,3 @@
-const { Double } = require("mongodb");
 const mongoose = require("../config/dbMongo");
 
 
@@ -7,17 +6,16 @@ const landingSchema = new mongoose.Schema({
         type: String,
     },
     id: {
-        type: Number,
+        type: String,
     },
     nametype: {
         type: String,
     },
     recclass: {
         type: String,
-
     },
     mass: {
-        type: Number,
+        type: String,
     },
     fall: {
         type: String,
@@ -41,6 +39,6 @@ const landingSchema = new mongoose.Schema({
     }
 });
 
-const landingModel = mongoose.model("landings", landingSchema);
+const Landing = mongoose.model("landings", landingSchema);
 
-module.exports = landingModel;
+module.exports = Landing;
