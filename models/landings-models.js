@@ -1,8 +1,11 @@
 //peticiones a la base de datos
-/* const { ObjectId } = require("mongodb"); */
+const res = require("express/lib/response");
+const { ObjectId } = require("mongodb");
 const landingSchema = require("./model_schema");
 require("mongoose");
 require("mongodb");
+
+
 
 const getAllLandings = async () => {
     try{
@@ -14,13 +17,33 @@ const getAllLandings = async () => {
     }
 }
 
-const getLandingByMass = async (minimum_mass) => {
+const getLandingByQuery = async (minimum_mass) => {
     try{
         if(minimum_mass){
-        console.log(typeof parseInt(minimum_mass));
+            console.log('c.log de minimum_mass en models: ',minimum_mass);
+            const agg = [
+                {
+                    '$project':
+                    {
+                        '_id': 0,
+                        'name': 1,
+                        'mass': 1
+                    }
+                },
+                {
+                    '$match': { '$expr': { '$gte': [{ '$toDecimal': '$mass' }, minimum_mass] } }
+                }
+            ];
+            const result = landingSchema.aggregate(agg);
+            console.log('c.log de result en models: ',result);
 
-        const landingByMass = await landingSchema.find({mass: {$gt:minimum_mass}}, 'name mass -_id');
-        return landingByMass
+
+            const minMassData = await landingSchema.find({mass: {$gte:minimum_mass}},'name mass -_id')
+            console.log('c.log de minMassData en models: ',minMassData);//me devuelve mass que empiezan por 9
+
+        
+            return minMassData        
+        
         }
     }
     catch(err){
@@ -28,10 +51,13 @@ const getLandingByMass = async (minimum_mass) => {
     }
 } 
 
+
+
 const landingMongo = {
 
     getAllLandings,
-    getLandingByMass,
+    getLandingByQuery,
+    
 
 }
 
